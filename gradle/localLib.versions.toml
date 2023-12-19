@@ -1,0 +1,18 @@
+[versions]
+design-pattern-lib="0.0.1"
+design-pattern-app="0.0.1"
+
+#
+#[libraries]
+#design-pattern={ group="jayo.arb.learnj", name="design-pattern", version.ref="design-pattern", classifier="app" }
+
+[libraries]
+[libraries.design-pattern-app]
+    group = "jayo.arb.learnj"
+    name = "design-pattern-app"
+    version.ref = "design-pattern-app"
+
+[libraries.design-pattern-lib]
+    group = "jayo.arb.learnj"
+    name = "design-pattern-lib"
+    version.ref = "design-pattern-lib"
