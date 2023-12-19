@@ -39,7 +39,8 @@ val MODULE_NAME: String ="${project.group}."
     .lowercase()
 
 val TASK_CONFIG_TESTS: Set<TaskConfig> = setOf(
-    TaskConfig.create( null, "$MODULE_NAME.creational.product.test.TestFruitFactory" )
+    TaskConfig.create( null, "$MODULE_NAME.creational.factory.product.test.TestFruitFactory" ),
+    TaskConfig.create( null, "$MODULE_NAME.creational.singleton.product.test.TestMonoRepoSingleton" )
 )
 
 

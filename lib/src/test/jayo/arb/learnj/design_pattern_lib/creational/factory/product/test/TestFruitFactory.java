@@ -1,7 +1,7 @@
-package jayo.arb.learnj.design_pattern_lib.creational.product.test;
+package jayo.arb.learnj.design_pattern_lib.creational.factory.product.test;
 
 import org.junit.jupiter.api.Test;
-import jayo.arb.learnj.design_pattern_lib.creational.product.FruitFactory;
+import jayo.arb.learnj.design_pattern_lib.creational.factory.product.FruitFactory;
 
 public class TestFruitFactory {
     @Test
