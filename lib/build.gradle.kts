@@ -54,26 +54,26 @@ project.java {
     //REM: TODO-HERE...
 }
 
-project.sourceSets {
-    this.main {
-        this.java {
-            this.setSrcDirs( listOf( "src/main/" ) )
-            this.setExcludes( listOf( "src/main/resources/" ) )
-        }
-        this.resources {
-            this.setSrcDirs( listOf( "src/main/resources/" ) )
-        }
-    }
-    this.test {
-        this.java {
-            this.setSrcDirs( listOf( "src/test/" ) )
-            this.setExcludes( listOf( "src/test/resources/" ) )
-        }
-        this.resources {
-            this.setSrcDirs( listOf( "src/test/resources/" ) )
-        }
-    }
-}
+//project.sourceSets {
+//    this.main {
+//        this.java {
+//            this.setSrcDirs( listOf( "src/main/" ) )
+//            this.setExcludes( listOf( "src/main/resources/" ) )
+//        }
+//        this.resources {
+//            this.setSrcDirs( listOf( "src/main/resources/" ) )
+//        }
+//    }
+//    this.test {
+//        this.java {
+//            this.setSrcDirs( listOf( "src/test/" ) )
+//            this.setExcludes( listOf( "src/test/resources/" ) )
+//        }
+//        this.resources {
+//            this.setSrcDirs( listOf( "src/test/resources/" ) )
+//        }
+//    }
+//}
 
 project.dependencies {
     //REM: TODO-HERE...
@@ -122,6 +122,8 @@ fun Jar.configureCustomDefaultJarTask(jarTask: Jar) {
     //REM: Add files or directories to the JAR if needed
     jarTask.from( project.sourceSets.main.get().output )
     jarTask.from( project.sourceSets.main.get().resources )
+
+    jarTask.duplicatesStrategy = DuplicatesStrategy.INCLUDE
 
     jarTask.doLast {
         //REM: TODO-HERE; Your custom JAR creation actions go here

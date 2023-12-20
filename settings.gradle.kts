@@ -80,6 +80,7 @@ settings.gradle.projectsEvaluated {
         val PROJECT_NAME_COMPOUND: String = "${PROJECT.rootProject.name}-${PROJECT_NAME}"
 
         lateinit var mavenPublish: PublishingExtension
+        lateinit var sourceSets: SourceSetContainer
 
         println(
             String.format( "::: %s[ %s[ %s - %s ] ]", SETTINGS_HASH_CODE,
@@ -100,9 +101,35 @@ settings.gradle.projectsEvaluated {
         }
         if( javaPluginIds.any{ javaPluginId -> this.project.plugins.hasPlugin( javaPluginId ) } ) {
 
+            sourceSets = this.project.extensions
+                .getByType<SourceSetContainer>()
+
+            sourceSets.apply {
+                this.named( "main" ) {
+                    this.java {
+                        this.setSrcDirs( listOf( "src/main/" ) )
+                        this.setExcludes( listOf( "src/main/resources/" ) )
+                    }
+                    this.resources {
+                        this.setSrcDirs( listOf( "src/main/resources/" ) )
+                    }
+                }
+                this.named( "test" ) {
+                    this.java {
+                        this.setSrcDirs( listOf( "src/test/" ) )
+                        this.setExcludes( listOf( "src/test/resources/" ) )
+                    }
+                    this.resources {
+                        this.setSrcDirs( listOf( "src/test/resources/" ) )
+                    }
+                }
+            }
+
             if( this.project.plugins.hasPlugin( PublishingPlugin::class.java ) ) {
+
                 mavenPublish = this.project.extensions
                     .getByType<PublishingExtension>()
+
                 mavenPublish.apply {
                     this.publications {
                         this.register<MavenPublication>( "mvn_pub__$PROJECT_NAME_COMPOUND" ) {
