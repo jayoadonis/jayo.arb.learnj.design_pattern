@@ -26,8 +26,7 @@ public class MonoRepoSingleton {
 
     public boolean addRepo( final String name ) {
         //REM: TODO-HERE...
-        this.repos.add( name );
-        return true;
+        return this.repos.add( name );
     }
 
     @Override

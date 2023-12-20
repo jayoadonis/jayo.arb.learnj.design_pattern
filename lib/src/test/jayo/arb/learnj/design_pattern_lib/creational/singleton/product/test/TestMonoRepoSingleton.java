@@ -17,6 +17,8 @@ public class TestMonoRepoSingleton {
         MonoRepoSingleton monoRepoSingleton2 = MonoRepoSingleton.getInstance( null );
         Assertions.assertTrue( monoRepoSingleton2.addRepo( "domain.name.project-three" ) );
 
+        Assertions.assertEquals( monoRepoSingleton.repos.size(), monoRepoSingleton2.repos.size() );
+
         System.out.println( monoRepoSingleton );
         System.out.println( monoRepoSingleton2 );
         System.out.println( monoRepoSingleton.repos );
