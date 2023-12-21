@@ -4,7 +4,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import jayo.arb.learnj.design_pattern_lib.creational.singleton.product.MonoRepoSingleton;
 
-import java.util.Arrays;
 
 public class TestMonoRepoSingleton {
 
