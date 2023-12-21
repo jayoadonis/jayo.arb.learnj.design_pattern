@@ -83,6 +83,8 @@ public class TestFruitBuilder {
         Fruit apple = fruitBuilder.build();
 
         System.out.println( "::: " + apple );
+        System.out.println( "::: " + fruitBuilder );
+        Assertions.assertEquals( "FRUIT-WTG", fruitBuilder.getId() );
         Assertions.assertEquals( "FRUIT-4", apple.getId() );
         Assertions.assertEquals( "Apple", apple.getName() );
         Assertions.assertTrue( apple.isRipen() );
@@ -91,6 +93,8 @@ public class TestFruitBuilder {
         Fruit apple1 = fruitBuilder.build();
 
         System.out.println( "::: " + apple1 );
+        System.out.println( "::: " + fruitBuilder );
+        Assertions.assertEquals( "FRUIT-WTG", fruitBuilder.getId() );
         Assertions.assertEquals( "FRUIT-5", apple1.getId() );
         Assertions.assertEquals( "Apple", apple1.getName() );
         Assertions.assertFalse( apple1.isRipen() );

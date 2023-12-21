@@ -1,6 +1,5 @@
 package jayo.arb.learnj.design_pattern_lib.creational.builder.fruit_product;
 
-import jayo.arb.learnj.design_pattern_lib.creational.singleton.product.MonoRepoSingleton;
 
 import java.util.Objects;
 
@@ -72,7 +71,7 @@ public class Fruit extends Entity {
     public static class FruitBuilder extends Fruit {
 
         private FruitBuilder() {
-            this( "FRUIT-", null, false );
+            this( "FRUIT-"+(Value.WAITING.VALUE), null, false );
         }
 
         private FruitBuilder(
@@ -107,7 +106,11 @@ public class Fruit extends Entity {
 
         public Fruit build() {
             final FruitBuilder fruitBuilder = FruitBuilder.instance;
-            return new Fruit( fruitBuilder.getId()+(id++), fruitBuilder.getName(), fruitBuilder.isRipen() );
+            return new Fruit(
+                    fruitBuilder.getId().replace( Value.WAITING.VALUE, String.valueOf( id++ ) ),
+                    fruitBuilder.getName(),
+                    fruitBuilder.isRipen()
+            );
         }
 
 
